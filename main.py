@@ -7,6 +7,7 @@ from telebot import types
 TOKEN = 'YOUR TOKEN' # محل توکن شما 
 bot = telebot.TeleBot(TOKEN)
 
+@bot.inline_handler(lambda query: len(query.query.split()) == 0)
 @bot.inline_handler(lambda query: len(query.query.split()) == 1)
 @bot.inline_handler(lambda query: len(query.query.split()) == 2)
 @bot.inline_handler(lambda query: len(query.query.split()) == 3)
