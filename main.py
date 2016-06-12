@@ -29,11 +29,12 @@ bot = telebot.TeleBot(TOKEN)
 @bot.inline_handler(lambda query: len(query.query.split()) == 20)
 def qq(q):
     text = q.query
-    bold = types.InlineQueryResultArticle('1', 'Bold', types.InputTextMessageContent('*{}*'.format(text), parse_mode="Markdown"))
-    code = types.InlineQueryResultArticle('2', 'Code', types.InputTextMessageContent('```{}```'.format(text), parse_mode="Markdown"))
-    italic = types.InlineQueryResultArticle('3', 'Italic', types.InputTextMessageContent('_{}_'.format(text), parse_mode="Markdown"))
-                
-
+    thumbb = 'http://lettergenerator.net/alphabetletters/bold/printable-letter-asap-b.jpg'
+    thumbc = 'http://lettergenerator.net/alphabetletters/bold/printable-letter-forque-c.jpg'
+    thumbi = 'http://lettergenerator.net/alphabetletters/bold/printable-letter-newtown-i.jpg'
+    bold = types.InlineQueryResultArticle('1', 'Bold', types.InputTextMessageContent('*{}*'.format(text), parse_mode="Markdown"), thumb_url=thumbb, thumb_width=20, thumb_height=20)
+    code = types.InlineQueryResultArticle('2', 'Code', types.InputTextMessageContent('```{}```'.format(text), parse_mode="Markdown"), thumb_url=thumbc, thumb_width=20, thumb_height=20)
+    italic = types.InlineQueryResultArticle('3', 'Italic', types.InputTextMessageContent('_{}_'.format(text), parse_mode="Markdown"), thumb_url=thumbi, thumb_width=20, thumb_height=20)
     bot.answer_inline_query(q.id, [bold, code, italic], cache_time=1)
     
     
