@@ -4,7 +4,7 @@ sys.setdefaultencoding("utf-8")
 import telebot
 from telebot import types
 
-TOKEN = 'YOUR TOKEN' # محل توکن شما 
+TOKEN = '216162835:AAH3z6Pb4F9-dDFWJYlHwjuS-VlTHy5D_SU' # محل توکن شما 
 bot = telebot.TeleBot(TOKEN)
 
 @bot.inline_handler(lambda query: len(query.query.split()) == 0)
